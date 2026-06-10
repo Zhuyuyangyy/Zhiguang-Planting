@@ -1,0 +1,87 @@
+# 服务器配置
+server:
+  port: 8253
+  servlet:
+    context-path: /
+
+# Redis 配置
+spring:
+  redis:
+    enabled: false
+
+
+    autoconfigure:
+      exclude:
+        - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+        - org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration
+
+  # Swagger/OpenAPI 配置（归到spring节点下更规范）
+  doc:
+    api-docs:
+      path: /api-docs
+    swagger-ui:
+      path: /swagger-ui.html
+      operationsSorter: method
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/laser_robot}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+  servlet:
+    multipart:
+      max-file-size: 900MB
+      max-request-size: 900MB
+      enabled: true
+  mvc:
+    async:
+      request-timeout: 3600000
+
+management:
+  health:
+    redis:
+      enabled: false
+
+
+# 限流配置（Resilience4j）
+resilience4j:
+  ratelimiter:
+    instances:
+      default:
+        limit-for-period: 50
+        limit-refresh-period: 1s
+        timeout-duration: 1s
+
+dify:
+  api:
+    # 补充 /v1 后缀，与 Dify API 文档的基础 URL 一致
+    base-url: ${DIFY_API_BASE_URL:http://localhost:8280/v1}
+    # 替换为真实的 API Key
+    key-ai: ${DIFY_API_KEY_AI:}
+    key-virtual: ${DIFY_API_KEY_VIRTUAL:}
+#讯飞
+xf:
+  avatar:
+    app-id: ${XF_AVATAR_APP_ID:}
+    api-key: ${XF_AVATAR_API_KEY:}
+    api-secret: ${XF_AVATAR_API_SECRET:}
+    scene-id: ${XF_AVATAR_SCENE_ID:}
+    avatar-id: ${XF_AVATAR_ID:}
+    vcn: ${XF_AVATAR_VCN:}
+mybatis:
+  logging:
+    level:
+      com.laserdentalrobot.mapper: debug
+
+#minio
+minio:
+  endpoint: ${MINIO_ENDPOINT:http://localhost:9000}
+  accessKey: ${MINIO_ACCESS_KEY:}
+  secretKey: ${MINIO_SECRET_KEY:}
+  bucket-name: ${MINIO_BUCKET_NAME:dental-robot-bucket}

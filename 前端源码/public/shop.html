@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>med-laser智慧服务平台 - 数字化口腔供应链</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <style>
+        :root {
+            --primary: #004e7c;
+            --accent: #06b6d4;
+            --bg-light: #f8fafc;
+        }
+        body { font-family: 'PingFang SC', system-ui, sans-serif; background: var(--bg-light); color: #334155; }
+        .nav-link { position: relative; cursor: pointer; transition: 0.3s; color: #64748b; }
+        .nav-link.active { color: var(--primary); font-weight: 700; }
+        .nav-link.active::after { content: ''; position: absolute; bottom: -24px; left: 0; width: 100%; height: 3px; background: var(--primary); }
+        .page { display: none; animation: fadeIn 0.4s ease-out; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .hover-card { transition: all 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1); }
+        .product-card:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<div class="bg-slate-900 text-white text-[11px] py-2 px-10 flex justify-between items-center">
+    <span>官方服务热线：点击在线咨询</span>
+    <span class="flex items-center gap-4">
+        <span class="flex items-center gap-1"><span class="iconify text-emerald-400" data-icon="solar:check-circle-bold"></span> 物流调度中心运行正常</span>
+        <a href="#" class="hover:text-cyan-400">商户入驻</a>
+    </span>
+</div>
+
+<nav class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 px-10 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+        <span class="iconify text-3xl text-[#004e7c]" data-icon="solar:health-bold"></span>
+        <div class="leading-tight">
+            <div class="text-xl font-black text-[#004e7c]">med-laser智慧服务平台</div>
+            <div class="text-[9px] tracking-[0.2em] text-slate-400 uppercase font-bold">Intelligent Dental</div>
+        </div>
+    </div>
+    
+    <div class="hidden md:flex gap-10 text-sm font-medium">
+        <span onclick="showPage('page1')" id="nav-page1" class="nav-link active">首页</span>
+        <span onclick="showPage('page2')" id="nav-page2" class="nav-link">设备商城</span>
+        <span onclick="showPage('page3')" id="nav-page3" class="nav-link">租赁服务</span>
+        <span onclick="showPage('page4')" id="nav-page4" class="nav-link">护理商城</span>
+        <span onclick="showPage('page5')" id="nav-page5" class="nav-link">科普专区</span>
+    </div>
+
+    <div class="flex items-center gap-4">
+        <button class="relative bg-slate-100 p-2.5 rounded-full hover:bg-slate-200 transition">
+            <span class="iconify text-xl text-slate-600" data-icon="solar:cart-large-2-linear"></span>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+        <button class="bg-[#004e7c] text-white px-6 py-2 rounded-full text-xs font-bold hover:bg-[#003853] transition shadow-lg shadow-blue-900/20">商户后台</button>
+    </div>
+</nav>
+
+<div class="max-w-7xl mx-auto py-10 px-6">
+
+    <div id="page1" class="page active">
+        <div class="rounded-[40px] bg-gradient-to-br from-[#003853] to-[#00609c] p-16 text-white mb-12 relative overflow-hidden shadow-2xl">
+            <div class="relative z-10 max-w-2xl">
+                <span class="bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-full text-[10px] font-bold mb-4 inline-block uppercase tracking-widest">Digital Healthcare</span>
+                <h1 class="text-5xl font-black mb-6 leading-tight">智能激光种植<br><span class="text-cyan-400">数字化口腔供应链</span></h1>
+                <p class="text-slate-300 text-lg mb-8">连接全球顶尖资源，为口腔机构提供设备采买、柔性租赁及一站式护理方案。</p>
+            </div>
+            <div class="absolute right-[-5%] bottom-[-5%] opacity-10">
+                <span class="iconify w-96 h-96" data-icon="solar:medical-kit-bold"></span>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div onclick="showPage('page2')" class="bg-white p-8 rounded-3xl border border-slate-100 hover-card cursor-pointer group">
+                <div class="w-14 h-14 bg-blue-50 text-[#004e7c] rounded-2xl flex items-center justify-center mb-6">
+                    <span class="iconify text-3xl" data-icon="solar:shop-2-bold"></span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">设备直采</h3>
+                <p class="text-slate-500 text-sm">数字化认证保障，支持医疗器械合规交易与厂家直达售后。</p>
+            </div>
+            <div onclick="showPage('page3')" class="bg-white p-8 rounded-3xl border border-slate-100 hover-card cursor-pointer group">
+                <div class="w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="iconify text-3xl" data-icon="solar:hand-stars-bold"></span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">租赁服务</h3>
+                <p class="text-slate-500 text-sm">提供按次付费或月租方案，大幅降低诊所引入高端技术的资金门槛。</p>
+            </div>
+            <div onclick="showPage('page4')" class="bg-white p-8 rounded-3xl border border-slate-100 hover-card cursor-pointer group">
+                <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                    <span class="iconify text-3xl" data-icon="solar:bag-heart-bold"></span>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">护理产品</h3>
+                <p class="text-slate-500 text-sm">精选术后专业耗材，帮助门诊构建私域闭环。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="mb-10">
+            <h2 class="text-2xl font-black text-slate-800">数字化设备商城</h2>
+            <p class="text-slate-500 text-sm mt-1">旗舰直采 · 厂商直供 · 全流程安装支持</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-3xl border border-slate-100 overflow-hidden hover-card flex flex-col">
+                <div class="h-52 bg-slate-50 p-6 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=400" class="h-full object-contain">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="font-bold text-slate-800 text-lg">激光 iPlus 治疗仪</h3>
+                    <p class="text-[11px] text-slate-500 my-3 bg-slate-50 p-2 rounded-lg">核心参数：双波长技术 / 0.1mm 精度控制 / 微创种植专用</p>
+                    <div class="text-xl font-black text-[#004e7c] mb-4">￥458,000</div>
+                    <div class="grid grid-cols-3 gap-2 mt-auto">
+                        <button class="bg-[#004e7c] text-white text-[10px] py-2 rounded-lg font-bold">购买</button>
+                        <button class="bg-cyan-600 text-white text-[10px] py-2 rounded-lg font-bold">租赁</button>
+                        <button class="bg-slate-100 text-slate-600 text-[10px] py-2 rounded-lg font-bold">详情</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-100 overflow-hidden hover-card flex flex-col">
+                <div class="h-52 bg-slate-50 p-6 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400" class="h-full object-contain">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="font-bold text-slate-800 text-lg">i-Tero 数字化口内扫描仪</h3>
+                    <p class="text-[11px] text-slate-500 my-3 bg-slate-50 p-2 rounded-lg">核心参数：高精度实时建模 / 修复种植模拟 / 开放式系统</p>
+                    <div class="text-xl font-black text-[#004e7c] mb-4">￥128,000</div>
+                    <div class="grid grid-cols-3 gap-2 mt-auto">
+                        <button class="bg-[#004e7c] text-white text-[10px] py-2 rounded-lg font-bold">购买</button>
+                        <button class="bg-cyan-600 text-white text-[10px] py-2 rounded-lg font-bold">租赁</button>
+                        <button class="bg-slate-100 text-slate-600 text-[10px] py-2 rounded-lg font-bold">详情</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-100 overflow-hidden hover-card flex flex-col">
+                <div class="h-52 bg-slate-50 p-6 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=400" class="h-full object-contain">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="font-bold text-slate-800 text-lg">显微根管治疗系统</h3>
+                    <p class="text-[11px] text-slate-500 my-3 bg-slate-50 p-2 rounded-lg">核心参数：多级变倍 / 高显色指数光源 / 一键影像捕捉</p>
+                    <div class="text-xl font-black text-[#004e7c] mb-4">￥186,000</div>
+                    <div class="grid grid-cols-3 gap-2 mt-auto">
+                        <button class="bg-[#004e7c] text-white text-[10px] py-2 rounded-lg font-bold">购买</button>
+                        <button class="bg-cyan-600 text-white text-[10px] py-2 rounded-lg font-bold">租赁</button>
+                        <button class="bg-slate-100 text-slate-600 text-[10px] py-2 rounded-lg font-bold">详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black text-slate-800">轻资产运营解决方案</h2>
+            <p class="text-slate-500 mt-3 text-sm">灵活方案助力诊所设备升级，拒绝高额首付压力</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-10 rounded-3xl border border-slate-100 hover-card text-center">
+                <div class="text-cyan-600 font-black text-[10px] mb-4 italic uppercase">Plan A</div>
+                <h3 class="font-bold text-xl mb-4">按手术人次付费</h3>
+                <p class="text-xs text-slate-400 mb-8 leading-relaxed">无需购机，按实际使用量结算，包含全套耗材包。</p>
+                <div class="text-2xl font-black text-slate-900 mb-6">￥1,200 <small class="text-xs font-normal">/台次</small></div>
+                <button class="w-full py-4 bg-slate-100 text-slate-800 rounded-2xl font-bold hover:bg-slate-900 hover:text-white transition-all">咨询方案</button>
+            </div>
+            <div class="bg-[#004e7c] p-10 rounded-[40px] text-center text-white shadow-2xl transform md:-translate-y-4">
+                <div class="text-cyan-400 font-black text-[10px] mb-4 italic uppercase">Plan B</div>
+                <h3 class="font-bold text-xl mb-4">长期租赁 (订阅)</h3>
+                <p class="text-xs text-slate-300 mb-8 leading-relaxed">享设备独占权，含原厂年保及 24h 响应。</p>
+                <div class="text-2xl font-black text-white mb-6">￥8,800 <small class="text-xs font-normal text-slate-400">/月起</small></div>
+                <button class="w-full py-4 bg-white text-[#004e7c] rounded-2xl font-bold hover:bg-cyan-50">申请入驻</button>
+            </div>
+            <div class="bg-white p-10 rounded-3xl border border-slate-100 hover-card text-center">
+                <div class="text-cyan-600 font-black text-[10px] mb-4 italic uppercase">Plan C</div>
+                <h3 class="font-bold text-xl mb-4">学术带教合作</h3>
+                <p class="text-xs text-slate-400 mb-8 leading-relaxed">专家到院指导，临床病例联合研究。</p>
+                <div class="text-2xl font-black text-slate-900 mb-6 italic">定制方案</div>
+                <button class="w-full py-4 bg-slate-100 text-slate-800 rounded-2xl font-bold hover:bg-slate-900 hover:text-white transition-all">医学部对接</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <div class="mb-10">
+            <h2 class="text-2xl font-black text-slate-800">术后护理商城</h2>
+            <p class="text-slate-500 text-sm mt-1">提升患者体验，构建诊所二次收益增长点</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-white p-4 rounded-[32px] border border-slate-100 product-card">
+                <div class="aspect-square bg-slate-50 rounded-2xl mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="https://modao.cc/agent-py/media/generated_images/2026-01-23/2dd66849b81949b7ad05350d02d90c58.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm">S7 智能声波牙刷</h4>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-lg font-black text-[#004e7c]">￥899</span>
+                    <button onclick="addToCart()" class="bg-[#004e7c] p-2 rounded-xl text-white hover:bg-[#003853]"><span class="iconify" data-icon="solar:add-circle-bold"></span></button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-[32px] border border-slate-100 product-card">
+                <div class="aspect-square bg-slate-50 rounded-2xl mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="https://modao.cc/agent-py/media/generated_images/2026-01-23/6394d270f97c42b0932cde7f276dead0.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm">抗敏修护套装</h4>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-lg font-black text-[#004e7c]">￥129</span>
+                    <button onclick="addToCart()" class="bg-[#004e7c] p-2 rounded-xl text-white hover:bg-[#003853]"><span class="iconify" data-icon="solar:add-circle-bold"></span></button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-[32px] border border-slate-100 product-card">
+                <div class="aspect-square bg-slate-50 rounded-2xl mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="https://modao.cc/agent-py/media/generated_images/2026-01-23/8708c1fead1a40bebb3a95374ea33b10.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm">术后全周期包</h4>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-lg font-black text-[#004e7c]">￥358</span>
+                    <button onclick="addToCart()" class="bg-[#004e7c] p-2 rounded-xl text-white hover:bg-[#003853]"><span class="iconify" data-icon="solar:add-circle-bold"></span></button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-[32px] border border-slate-100 product-card">
+                <div class="aspect-square bg-slate-50 rounded-2xl mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="https://modao.cc/agent-py/media/generated_images/2026-01-23/d6915ab024d040f1b988f68f1186fb71.jpg" class="w-full h-full object-cover">
+                </div>
+                <h4 class="font-bold text-slate-800 text-sm">便携脉冲冲牙器</h4>
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-lg font-black text-[#004e7c]">￥269</span>
+                    <button onclick="addToCart()" class="bg-[#004e7c] p-2 rounded-xl text-white hover:bg-[#003853]"><span class="iconify" data-icon="solar:add-circle-bold"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page5" class="page">
+        <div class="flex flex-col lg:flex-row gap-10">
+            <div class="flex-1">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-2xl font-black text-slate-800 flex items-center gap-2">
+                        <span class="iconify text-cyan-600" data-icon="solar:notebook-bold"></span> 数字化口腔百科
+                    </h2>
+                    <span class="text-xs text-slate-400">更新时间：官方发布</span>
+                </div>
+                
+                <div class="grid gap-6">
+                    <div class="bg-white p-8 rounded-[32px] border border-slate-100 hover-card group cursor-pointer">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="bg-blue-50 text-[#004e7c] text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Clinical</span>
+                            <span class="text-[10px] text-slate-300">| 阅读 3.5k</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 group-hover:text-[#004e7c] transition">激光技术在微创种植术中的临床应用深度报告</h3>
+                        <p class="text-sm text-slate-500 mt-4 leading-relaxed">
+                            本文深入探讨了 Er,Cr:YSGG 激光在硬组织切割与骨重塑中的生物学机制。研究表明，激光能有效减少术中热损伤，加速成骨细胞早期附着...
+                        </p>
+                        <div class="mt-6 flex items-center gap-3">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-8 h-8 rounded-full">
+                            <div>
+                                <div class="text-xs font-bold text-slate-700">数字化临床专家</div>
+                                <div class="text-[10px] text-slate-400">资深主任医师</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-80">
+                <div class="sticky top-24 space-y-6">
+                    <div class="bg-slate-900 rounded-[32px] p-6 text-white">
+                        <h4 class="text-sm font-bold mb-4 flex items-center gap-2">直播预告</h4>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-cyan-500 pl-4 py-1 text-xs font-bold">全口无牙颌全导板种植技巧</div>
+                            <div class="border-l-2 border-slate-700 pl-4 py-1 text-xs font-bold">口腔门诊私域运营实战</div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-slate-100 rounded-[32px] p-6">
+                        <h4 class="text-sm font-black text-slate-800 mb-4 italic">F.A.Q</h4>
+                        <details class="group text-[11px]">
+                            <summary class="font-bold text-slate-600 cursor-pointer list-none flex justify-between">租赁设备包含保险吗？ <span class="group-open:rotate-180 transition">+</span></summary>
+                            <p class="text-slate-400 mt-2">是的，所有租赁计划均包含第三方责任险及原厂延保，出现故障 24 小时内响应。</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="bg-white border-t border-slate-100 py-12 mt-20 text-center">
+    <p class="text-slate-400 text-[10px] tracking-widest uppercase">Professional Dental Supply Chain Platform</p>
+    <p class="text-slate-300 text-[10px]">© 齿科智联医疗科技(MED) 全球运营中心</p>
+</footer>
+
+<script>
+    let count = 0;
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        document.getElementById('nav-' + pageId).classList.add('active');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    function addToCart() {
+        count++;
+        document.getElementById('cart-count').innerText = count;
+    }
+</script>
+
+</body>
+</html>
