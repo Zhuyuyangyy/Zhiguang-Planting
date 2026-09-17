@@ -61,8 +61,8 @@ interface Danmaku {
 const MOCK_FULL_CONFIG: FullAvatarConfig = {
   sdkConfig: {
     appId: 'bb0c70fd',
-    apiKey: '9386b8d95d4ef358463fed7cf05590db',
-    apiSecret: 'ZTdjNDk2NzU0MjY1MTMyYmNhZDNlMGJl',
+    apiKey: 'YOUR-XFYUN-API-KEY',
+    apiSecret: 'YOUR-XFYUN-API-SECRET',
     sceneId: '314319524864331776',
     serverUrl: 'wss://avatar.cn-huadong-1.xf-yun.com/v1/interact',
   },
